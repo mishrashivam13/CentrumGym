@@ -38,7 +38,7 @@ export default function ClassesPage() {
               <Link
                 key={cls.slug}
                 href={`/classes/${cls.slug}`}
-                className="group block relative overflow-hidden bg-zinc-900 border border-zinc-700 hover:border-orange-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/20"
+                className="group block relative overflow-hidden bg-zinc-900 border border-zinc-700 hover:border-orange-500 active:border-orange-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/20 active:scale-95"
               >
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image

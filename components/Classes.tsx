@@ -79,7 +79,7 @@ function ClassCard({ cls, tall }: { cls: (typeof classes)[0]; tall?: boolean }) 
   return (
     <Link
       href={`/classes/${cls.slug}`}
-      className={`relative overflow-hidden group block ${tall ? "h-64" : "h-56"}`}
+      className={`relative overflow-hidden group block active:opacity-80 ${tall ? "h-64" : "h-56"}`}
     >
       <img
         src={cls.img}

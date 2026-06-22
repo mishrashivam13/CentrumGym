@@ -54,7 +54,7 @@ export default function Membership() {
           {plans.map((plan, i) => (
             <div
               key={i}
-              className="group border border-zinc-700 p-8 flex flex-col bg-black hover:bg-white hover:border-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30"
+              className="group border border-zinc-700 p-8 flex flex-col bg-black hover:bg-white hover:border-white active:bg-white active:border-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/30 active:shadow-2xl active:shadow-orange-500/30"
             >
               <h3 className="text-2xl font-black mb-1 text-white group-hover:text-black transition-colors duration-500">
                 {plan.name}
@@ -76,7 +76,7 @@ export default function Membership() {
 
               <a
                 href="#contact"
-                className="block text-center font-bold tracking-widest uppercase py-4 transition-all duration-500 bg-zinc-800 text-white group-hover:bg-orange-500 group-hover:text-white"
+                className="block text-center font-bold tracking-widest uppercase py-4 transition-all duration-500 bg-zinc-800 text-white group-hover:bg-orange-500 group-hover:text-white group-active:bg-orange-500"
               >
                 Join Now
               </a>

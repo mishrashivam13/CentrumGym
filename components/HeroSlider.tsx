@@ -26,7 +26,7 @@ const slides = [
     ),
   },
   {
-    bg: "https://img.magnific.com/free-photo/shirtless-male-bodybuilder-holding-dumbbells_7502-4802.jpg?semt=ais_hybrid&w=740&q=80",
+    bg: "https://manofmany.com/_next/image?url=https%3A%2F%2Fapi.manofmany.com%2Fwp-content%2Fuploads%2F2023%2F09%2FPexels.jpg&w=1200&q=75",
     subtitle: "START YOUR JOURNEY",
     title: (
       <>

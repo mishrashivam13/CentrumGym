@@ -35,14 +35,14 @@ export default function AboutFeatures() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {features.map(({ Icon, title, desc }, i) => (
-            <div key={i} className="flex flex-col items-center gap-4 group">
-              <div className="w-20 h-20 rounded-full bg-zinc-800 group-hover:bg-orange-500 flex items-center justify-center transition-colors duration-300">
+            <div key={i} className="flex flex-col items-center gap-4 group active:scale-95 transition-transform duration-150">
+              <div className="w-20 h-20 rounded-full bg-zinc-800 group-hover:bg-orange-500 group-active:bg-orange-500 flex items-center justify-center transition-colors duration-300">
                 <Icon
                   size={36}
-                  className="text-orange-500 group-hover:text-white transition-colors duration-300"
+                  className="text-orange-500 group-hover:text-white group-active:text-white transition-colors duration-300"
                 />
               </div>
-              <h3 className="text-white font-bold text-lg group-hover:text-orange-500 transition-colors duration-300">
+              <h3 className="text-white font-bold text-lg group-hover:text-orange-500 group-active:text-orange-500 transition-colors duration-300">
                 {title}
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed text-center">{desc}</p>
