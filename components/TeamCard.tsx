@@ -1,19 +1,31 @@
 import type { TeamMember } from "./teamData";
 
-export default function TeamCard({ member }: { member: TeamMember }) {
+type Props = {
+  member: TeamMember;
+  active?: boolean;
+  onToggle?: () => void;
+};
+
+export default function TeamCard({ member, active = false, onToggle }: Props) {
   return (
-    <div className="relative overflow-hidden group cursor-pointer">
+    <div
+      className="relative overflow-hidden cursor-pointer select-none"
+      onClick={onToggle}
+    >
       <img
         src={member.img}
         alt={member.name}
-        className="w-full h-96 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+        className={`w-full h-96 object-cover object-top transition-transform duration-500 ${
+          active ? "scale-105" : "scale-100"
+        }`}
       />
-      {/* Always visible on mobile, slides up on hover on desktop */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black/80 p-5 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300">
+      <div
+        className={`absolute bottom-0 left-0 right-0 bg-black/80 p-5 transition-transform duration-300 ${
+          active ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
         <h3 className="text-white font-bold text-xl">{member.name}</h3>
-        <p className="text-orange-500 text-sm tracking-widest uppercase mt-1">
-          {member.role}
-        </p>
+        <p className="text-orange-500 text-sm tracking-widest uppercase mt-1">{member.role}</p>
       </div>
     </div>
   );

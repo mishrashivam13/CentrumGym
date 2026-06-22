@@ -38,9 +38,9 @@ const socialLinks = [
   {
     label: "YouTube",
     svg: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <rect x="2" y="5" width="20" height="14" rx="3" />
+        <polygon fill="currentColor" stroke="none" points="10,9 16,12 10,15" />
       </svg>
     ),
   },

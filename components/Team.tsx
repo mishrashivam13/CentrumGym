@@ -7,6 +7,7 @@ import TeamCard from "./TeamCard";
 export default function Team() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const total = teamMembers.length;
 
   const prev = () => setIndex((i) => (i - 1 + total) % total);
@@ -47,7 +48,12 @@ export default function Team() {
           onMouseLeave={() => setPaused(false)}
         >
           {visibleMembers.map((member, i) => (
-            <TeamCard key={`${index}-${i}`} member={member} />
+            <TeamCard
+              key={`${index}-${i}`}
+              member={member}
+              active={activeCard === i}
+              onToggle={() => setActiveCard((prev) => (prev === i ? null : i))}
+            />
           ))}
         </div>
 
