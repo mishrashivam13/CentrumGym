@@ -15,7 +15,7 @@ const slides = [
     ),
   },
   {
-    bg: "https://t4.ftcdn.net/jpg/04/98/76/39/360_F_498763970_XD0R6dPtnsdVlLGyIuxqXHezfnc1s1g4.jpg",
+    bg: "https://img.magnific.com/premium-photo/portrait-physically-fit-man-posing-modern-fitness-center-gym_600776-25242.jpg?semt=ais_hybrid&w=740&q=80",
     subtitle: "UNLEASH YOUR POWER",
     title: (
       <>
