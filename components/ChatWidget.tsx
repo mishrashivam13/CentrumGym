@@ -1,5 +1,5 @@
-import { API } from "@/lib/api";
 "use client";
+import { API } from "@/lib/api";
 
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot, User, Loader2, CheckCircle, Dumbbell } from "lucide-react";

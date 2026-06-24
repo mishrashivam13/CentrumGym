@@ -1,5 +1,5 @@
-import { API } from "@/lib/api";
 "use client";
+import { API } from "@/lib/api";
 
 import { useEffect, useState } from "react";
 import { Search, Trash2, ChevronLeft, ChevronRight, X, Phone, Mail, MessageSquare, Bot } from "lucide-react";

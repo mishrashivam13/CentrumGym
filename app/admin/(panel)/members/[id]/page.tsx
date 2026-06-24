@@ -1,5 +1,5 @@
-import { API } from "@/lib/api";
 "use client";
+import { API } from "@/lib/api";
 
 import React, { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
