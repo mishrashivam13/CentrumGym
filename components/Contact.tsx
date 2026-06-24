@@ -1,3 +1,4 @@
+import { API } from "@/lib/api";
 "use client";
 import { useState } from "react";
 
@@ -11,12 +12,28 @@ const WhatsAppIcon = () => (
 export default function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    setForm({ name: "", phone: "", message: "" });
-    setTimeout(() => setSent(false), 4000);
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch(`${API}/api/enquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, phone: form.phone, message: form.message }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSent(true);
+      setForm({ name: "", phone: "", message: "" });
+      setTimeout(() => setSent(false), 5000);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -96,14 +113,18 @@ export default function Contact() {
             />
             <button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-black tracking-widest uppercase py-5 transition-colors text-sm"
+              disabled={loading}
+              className="bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black tracking-widest uppercase py-5 transition-colors text-sm"
             >
-              Send Message
+              {loading ? "Sending…" : "Send Message"}
             </button>
             {sent && (
               <p className="text-green-400 text-sm text-center">
                 Message sent! We will get back to you shortly.
               </p>
+            )}
+            {error && (
+              <p className="text-red-400 text-sm text-center">{error}</p>
             )}
           </form>
         </div>

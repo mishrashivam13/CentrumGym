@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, LayoutDashboard } from "lucide-react";
 
 const moreDropdown = [
   { label: "Classes Timetable", href: "/timetable" },
@@ -71,6 +71,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [moreOpenMobile, setMoreOpenMobile] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const pathname = usePathname();
   const active = getActiveLabel(pathname);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -79,6 +80,10 @@ export default function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsAdmin(!!localStorage.getItem("adminToken"));
   }, []);
 
   // Close dropdown when clicking outside
@@ -155,13 +160,22 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Social Icons */}
+          {/* Social Icons + Admin */}
           <div className="hidden lg:flex items-center gap-3 text-white">
             {socialLinks.map((s) => (
               <a key={s.label} href="#" aria-label={s.label} className="hover:text-orange-400 transition-colors">
                 {s.svg}
               </a>
             ))}
+            {isAdmin && (
+              <Link
+                href="/admin/dashboard"
+                className="flex items-center gap-1.5 ml-2 px-3 py-1.5 bg-yellow-400 hover:bg-yellow-300 text-black text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+              >
+                <LayoutDashboard size={13} />
+                Dashboard
+              </Link>
+            )}
           </div>
 
           {/* Mobile hamburger */}
@@ -225,6 +239,16 @@ export default function Navbar() {
               </a>
             ))}
           </div>
+          {isAdmin && (
+            <Link
+              href="/admin/dashboard"
+              onClick={() => setOpen(false)}
+              className="mt-3 flex items-center justify-center gap-2 w-full py-3 bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold uppercase tracking-wider rounded-lg transition-colors"
+            >
+              <LayoutDashboard size={15} />
+              Go to Dashboard
+            </Link>
+          )}
         </div>
       )}
     </nav>
