@@ -71,3 +71,75 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── Admin Light Theme — Warm Peach Palette ── */
+.admin-light {
+  background-color: #fdf0e6;
+  color: #2d1206;
+}
+
+/* Backgrounds */
+.admin-light .bg-zinc-950  { background-color: #fdf0e6 !important; }   /* page bg — warm peach */
+.admin-light .bg-zinc-900  { background-color: #fff8f2 !important; }   /* cards  — cream */
+.admin-light .bg-zinc-800  { background-color: #fde8d4 !important; }   /* inputs / secondary */
+.admin-light .bg-zinc-700  { background-color: #f8d5bb !important; }   /* deeper accent */
+.admin-light .bg-black\/20 { background-color: rgba(180,80,20,.06) !important; }
+.admin-light .bg-black     { background-color: #fdf0e6 !important; }
+
+/* Text */
+.admin-light .text-white   { color: #2d1206 !important; }              /* headings — deep brown */
+.admin-light .text-zinc-300{ color: #5a2d14 !important; }
+.admin-light .text-zinc-400{ color: #7a4025 !important; }              /* nav links */
+.admin-light .text-zinc-500{ color: #9a5535 !important; }              /* subtle labels */
+.admin-light .text-zinc-600{ color: #b07050 !important; }              /* placeholders */
+.admin-light .text-zinc-700{ color: #c89070 !important; }
+
+/* Borders */
+.admin-light .border-zinc-800 { border-color: #f0c8a8 !important; }
+.admin-light .border-zinc-700 { border-color: #e8b890 !important; }
+
+/* Hover states */
+.admin-light .hover\:bg-zinc-800:hover { background-color: #fde8d4 !important; }
+.admin-light .hover\:bg-zinc-700:hover { background-color: #f8d5bb !important; }
+.admin-light .hover\:text-white:hover  { color: #2d1206 !important; }
+
+/* Inputs / textarea / select */
+.admin-light input,
+.admin-light textarea,
+.admin-light select {
+  background-color: #fde8d4 !important;
+  border-color: #e8b890 !important;
+  color: #2d1206 !important;
+}
+.admin-light input::placeholder,
+.admin-light textarea::placeholder { color: #c08060 !important; }
+.admin-light input:focus,
+.admin-light textarea:focus { border-color: #e07030 !important; }
+
+/* Keep all colored buttons unchanged */
+.admin-light .bg-yellow-400 { background-color: #f59e0b !important; }
+.admin-light .bg-green-500  { background-color: #22c55e !important; }
+.admin-light .bg-red-500    { background-color: #ef4444 !important; }
+.admin-light .bg-blue-600   { background-color: #2563eb !important; }
+
+/* White text ON colored buttons stays white */
+.admin-light .bg-green-500 .text-white,
+.admin-light .bg-green-500.text-white  { color: #ffffff !important; }
+.admin-light .bg-red-500 .text-white,
+.admin-light .bg-red-500.text-white    { color: #ffffff !important; }
+.admin-light .bg-blue-600 .text-white,
+.admin-light .bg-blue-600.text-white   { color: #ffffff !important; }
+
+/* Table rows */
+.admin-light table { background-color: #fff8f2 !important; }
+.admin-light thead { background-color: #fde8d4 !important; }
+.admin-light tbody tr:hover { background-color: #fdeede !important; }
+
+/* Scrollbar */
+.admin-light ::-webkit-scrollbar-track { background: #fde8d4; }
+.admin-light ::-webkit-scrollbar-thumb { background: #e0a878; border-radius: 4px; }
+
+/* Shadow softening */
+.admin-light .shadow-lg {
+  box-shadow: 0 4px 24px rgba(180, 80, 20, .10) !important;
+}

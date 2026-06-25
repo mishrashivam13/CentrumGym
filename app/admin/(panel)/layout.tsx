@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/admin/Sidebar";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 export default function AdminPanelLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -26,12 +27,13 @@ export default function AdminPanelLayout({ children }: { children: React.ReactNo
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      <Sidebar />
-      {/* Content — offset for sidebar */}
-      <main className="lg:ml-64 pt-16 lg:pt-0 min-h-screen">
-        <div className="p-6">{children}</div>
-      </main>
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-zinc-950 text-white">
+        <Sidebar />
+        <main className="lg:ml-64 pt-16 lg:pt-0 pb-20 lg:pb-0 min-h-screen">
+          <div className="p-6">{children}</div>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 }
