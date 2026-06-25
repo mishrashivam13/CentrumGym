@@ -105,8 +105,8 @@ function Card({ title, icon: Icon, children, className = "" }: { title: string; 
 function downloadReceipt(memberId: string, index?: number) {
   const token = localStorage.getItem("adminToken");
   const url = index !== undefined
-    ? `$\{API\}/api/members/${memberId}/receipt/${index}`
-    : `$\{API\}/api/members/${memberId}/receipt`;
+    ? `${API}/api/members/${memberId}/receipt/${index}`
+    : `${API}/api/members/${memberId}/receipt`;
   fetch(url, { headers: { Authorization: `Bearer ${token}` } })
     .then((r) => r.blob())
     .then((blob) => {
@@ -180,7 +180,7 @@ export default function MemberDetailPage({ params }: { params: Promise<{ id: str
   }
 
   function loadMember() {
-    fetch(`$\{API\}/api/members/${id}`, { headers: authH() })
+    fetch(`${API}/api/members/${id}`, { headers: authH() })
       .then((r) => r.json())
       .then((m: Member) => {
         if (!m._id) return;
@@ -219,7 +219,7 @@ export default function MemberDetailPage({ params }: { params: Promise<{ id: str
         ? { name: pf.ecName, phone: pf.ecPhone, relation: pf.ecRelation }
         : undefined,
     };
-    const res     = await fetch(`$\{API\}/api/members/${id}`, { method: "PUT", headers: authH(), body: JSON.stringify(body) });
+    const res     = await fetch(`${API}/api/members/${id}`, { method: "PUT", headers: authH(), body: JSON.stringify(body) });
     const updated = await res.json() as Member;
     setMember(updated);
     setSaved(true); setSaving(false);
@@ -228,7 +228,7 @@ export default function MemberDetailPage({ params }: { params: Promise<{ id: str
 
   async function deleteMember() {
     if (!await show({ type: "confirm-delete", title: "Delete Member", message: "This will permanently delete the member and all their records. This cannot be undone." })) return;
-    await fetch(`$\{API\}/api/members/${id}`, { method: "DELETE", headers: authH() });
+    await fetch(`${API}/api/members/${id}`, { method: "DELETE", headers: authH() });
     router.push("/admin/members");
   }
 
@@ -236,7 +236,7 @@ export default function MemberDetailPage({ params }: { params: Promise<{ id: str
     e.preventDefault();
     if (!member) return;
     setPayingDue(true);
-    await fetch(`$\{API\}/api/members/${id}/fee`, {
+    await fetch(`${API}/api/members/${id}/fee`, {
       method: "POST", headers: authH(),
       body: JSON.stringify({ amount: Number(dueForm.amount), method: dueForm.method, date: dueForm.date, note: dueForm.note }),
     });
@@ -244,7 +244,7 @@ export default function MemberDetailPage({ params }: { params: Promise<{ id: str
     setShowDueModal(false);
     setDueForm({ amount: "", method: "cash", date: new Date().toISOString().split("T")[0], note: "" });
     /* Refresh member data */
-    const res = await fetch(`$\{API\}/api/members/${id}`, { headers: authH() });
+    const res = await fetch(`${API}/api/members/${id}`, { headers: authH() });
     const m = await res.json() as Member;
     m.feeHistory = m.feeHistory ?? [];
     setMember(m);
